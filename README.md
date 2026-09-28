@@ -1,6 +1,6 @@
 # Hexagonal-grid-pathfinding-project
 
-University project involving the creation of a map containing hexagonal cells, the focus of the project is on the implementation of a pathfinding algorithm given two points as input.
+University project involving the creation of a map containing hexagonal cells. The focus of the project is on the implementation of a pathfinding algorithm given two points as input.
 
 ## Restrictions
 The program must run under certain memory and time limitations, defined by the software used for grade evaluation.
