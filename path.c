@@ -137,7 +137,6 @@ int main(){
                 cache = calloc(CACHE_CAP, sizeof(cache_t));
 
                 oddr_to_axial(&a, xp, yp);
-               // xp = va(xp-x); // in realtà non serve
                 N = raggio-1;
                 for(hex.q = -N; hex.q<= +N; hex.q++){
                     for(hex.r = max(-N, -hex.q-N); hex.r<=mini(+N, -hex.q+N); hex.r++){
@@ -266,7 +265,7 @@ static inline void toggle_air_route(int x1, int y1, int x2, int y2, air_route_t 
     int da_eliminare;
     int new_key = x2*max_y + y2;
 
-    if(search_ar(new_key, h, &da_eliminare)){ //rotta già esistente, da eliminare
+    if(search_ar(new_key, h, &da_eliminare)){
         h[da_eliminare].occupied=0;
         *num_ar = *num_ar-1;
     }else if(*num_ar<4){
@@ -343,8 +342,8 @@ static inline void minheapify(int i){
     int parent_i;
     queue_elem_t tmp;
 
-    parent_i = (int)((i-1)/2);  //arrotondamento per difetto con cast a intero, per trovare l'indice del padre
-    while(i>0 && min.arr[i].tot_dist<min.arr[parent_i].tot_dist){   //minore perchè è un minheap, quindi facciamo salire sopra gli elementi piccoli
+    parent_i = (int)((i-1)/2);  
+    while(i>0 && min.arr[i].tot_dist<min.arr[parent_i].tot_dist){   
 
         tmp = min.arr[i];
         min.arr[i] = min.arr[parent_i];
@@ -365,7 +364,7 @@ static inline void insert_in_mh(int x, int y, int dist){
             min_noe++;
     }else{
         printf("ciao\n");
-      //  resize_mh(min);
+
         insert_in_mh(x, y, dist);
     }
 
@@ -410,7 +409,7 @@ static inline queue_elem_t extract_mh(){
         minimo.y = -1;
         return minimo;
     }
-    end = min_noe-1; //indice dell'ultimo elemento valido dell'array, quindi l'ultimo elemento dell'heap
+    end = min_noe-1; 
     minimo = min.arr[0];
     min.arr[0] = min.arr[end];
     min_noe--;
